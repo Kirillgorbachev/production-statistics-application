@@ -60,20 +60,10 @@ export const UserApi = baseApi.injectEndpoints({
         body,
       }),
     }),
-    // register: build.mutation({
-    //   query: (user) =>({
-    //     url: '/users',
-    //     method: 'POST',
-    //     body: {...user}
-    //   })
-    // }),
-    // logout: build.mutation({
-    //   query: () =>({
-    //     url: '/auth',
-    //     method: 'DELETE'
-    //   })
-    // })
   }),
 });
 
-export const { useFetchUsersQuery } = UserApi;
+export const { useFetchUsersQuery, 
+  useCreateUserMutation, useDeleteUserMutation, useFetchUserByIdQuery,
+   useUpdateAccountNonExpiredMutation, useUpdateEnabledMutation, 
+   useUpdateAccountNonLockedMutation, useUpdateCredentialsNonExpiredMutation, useUpdateUserInfoMutation  } = UserApi;
