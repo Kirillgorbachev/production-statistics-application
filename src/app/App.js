@@ -21,7 +21,7 @@ function App() {
           </Route>
 
 
-          <Route index element={<Navigate to="/login" />} />
+          {/* <Route index element={<Navigate to="/login" />} /> */}
 
       </Routes>
   );

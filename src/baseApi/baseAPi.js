@@ -22,11 +22,15 @@ const baseQueryWithAccess = fetchBaseQuery({
 })
 
 const baseQueryWithRefresh = async (args, api, extraOptions) => {
+    // console.log("baseQueryWithRefresh is called");
+
     let result;
     try{
         result = await baseQueryWithAccess(args, api, extraOptions)
+        //console.log("Result from baseQueryWithAccess:", result);
     }
     catch(error){
+        console.error("Error in baseQueryWithAccess:", error);
         if(!error.response){
             console.log("baseApi: No server response")
         }

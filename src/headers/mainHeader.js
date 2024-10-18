@@ -1,24 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Model/AuthSlice";
 import { isLoggedIn, token, userId } from "../Model/AuthSlice";
+import { useLogoutApiMutation } from "../Api/AuthApi";
 
 const MainHeader = () => {
     const dispatch = useDispatch();
+    const [logoutApi, {}] = useLogoutApiMutation();
 
-    const loggedIn = useSelector(isLoggedIn); // Получаем статус авторизации
-    const currentToken = useSelector(token); // Получаем текущий токен
-    const currentUserId = useSelector(userId); // Получаем текущий userId
+    const handleLogout = async () => {
+        try {
+            await logoutApi();
+            dispatch(logout());
 
-    const handleLogout = () => {
-        console.log("before logout");
-        console.log("isLoggedIn :" + loggedIn);
-        console.log("token :" + currentToken);
-        console.log("userId :" + currentUserId);
-        dispatch(logout());
-        console.log("after logout");
-        console.log("isLoggedIn :" + isLoggedIn);
-        console.log("token :" + token);
-        console.log("userId :" + userId);
+        } catch (e) {
+            console.log(e.message);
+        }
 
     }
 

@@ -2,18 +2,22 @@ import { useState } from "react";
 import './loginForm.css';
 import { useLoginMutation } from "../Api/AuthApi";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setToken } from "../Model/AuthSlice";
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [login, {isError, isSuccess, error}] = useLoginMutation();
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const result = await login({ email, password }).unwrap();
             console.log('Успешный вход:', result);
+            dispatch(setToken(result.token));
             navigate('/statistics');
           } catch (err) {
             console.error('Ошибка входа:', err);
