@@ -1,0 +1,8 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #81a4fd, #a1c4fd);
+    font-family: 'Arial', sans-serif;
+  }
