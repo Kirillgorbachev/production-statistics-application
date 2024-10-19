@@ -27,7 +27,7 @@ const baseQueryWithRefresh = async (args, api, extraOptions) => {
     let result;
     try{
         result = await baseQueryWithAccess(args, api, extraOptions)
-        //console.log("Result from baseQueryWithAccess:", result);
+        console.log("Result from baseQueryWithAccess:", result);
     }
     catch(error){
         console.error("Error in baseQueryWithAccess:", error);

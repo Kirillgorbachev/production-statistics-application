@@ -1,0 +1,23 @@
+.item-container {
+    background-color: #f9f9f9; /* Светлый фон для выделения элемента */
+    border: 1px solid #e0e0e0; /* Светлая граница */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 16px; /* Внутренние отступы */
+    margin: 10px 0; /* Внешние отступы между элементами */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+    transition: transform 0.2s; /* Плавное изменение при наведении */
+}
+
+.item-container:hover {
+    transform: translateY(-2px); /* Подъем элемента при наведении */
+}
+
+.item-container h3 {
+    font-size: 1.2em; /* Размер заголовка */
+    margin: 0; /* Убираем отступы у заголовка */
+    color: #333; /* Цвет текста заголовка */
+}
+
+.item-container p {
+    color: #666; /* Цвет текста для дополнительной информации */
+}

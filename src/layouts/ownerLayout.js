@@ -1,11 +1,11 @@
 import Footer from "../footer/footer";
-import MainHeader from "../headers/mainHeader";
+import OwnerHeader from "../headers/ownerHeader/ownerHeader";
 import { Outlet } from 'react-router-dom';
 
-const MainLayout = () => {
+const OwnerLayout = () => {
     return (
         <div>
-            <MainHeader />
+            <OwnerHeader />
 
             <main>
                 <Outlet />
@@ -17,4 +17,4 @@ const MainLayout = () => {
     )
 }
 
-export default MainLayout;
+export default OwnerLayout;

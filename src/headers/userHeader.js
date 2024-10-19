@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logout } from "../Model/AuthSlice";
-import { isLoggedIn, token, userId } from "../Model/AuthSlice";
 import { useLogoutApiMutation } from "../Api/AuthApi";
 
-const MainHeader = () => {
+const UserHeader = () => {
     const dispatch = useDispatch();
     const [logoutApi, {}] = useLogoutApiMutation();
 
@@ -20,10 +19,10 @@ const MainHeader = () => {
 
     return (
         <div className="header">
-           мэйн хэдер
+           юзер хэдер
            <button onClick={handleLogout}>Выйти</button>
         </div>
     )
 }
 
-export default MainHeader;
+export default UserHeader;

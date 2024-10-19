@@ -1,4 +1,4 @@
-import LoginForm from "../../../widgets/loginForm";
+import LoginForm from "../../widgets/loginForm/loginForm";
 import './loginPage.css';
 
 const LoginPage = () => {

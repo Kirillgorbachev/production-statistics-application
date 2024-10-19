@@ -1,9 +1,10 @@
 import { useState } from "react";
 import './loginForm.css';
-import { useLoginMutation } from "../Api/AuthApi";
+import { useLoginMutation } from "../../Api/AuthApi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setToken } from "../Model/AuthSlice";
+import { setToken } from "../../Model/AuthSlice";
+import { decodeToken } from "react-jwt";
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ const LoginForm = () => {
     const [login, {isError, isSuccess, error}] = useLoginMutation();
     const navigate = useNavigate();
     const dispatch = useDispatch()
+    //const roles = useSelector(userRole);  // Получаем роли из Redux
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,7 +20,15 @@ const LoginForm = () => {
             const result = await login({ email, password }).unwrap();
             console.log('Успешный вход:', result);
             dispatch(setToken(result.token));
-            navigate('/statistics');
+
+            const roles = decodeToken(result.token).roleIds;
+            
+             // Навигация на основе роли
+            if (roles.includes(1)) {
+                navigate('/owner/home');  // Перенаправление для владельца
+            } else if (roles.includes(2)) {
+                navigate('/user/home');  // Перенаправление для обычного пользователя
+            }
           } catch (err) {
             console.error('Ошибка входа:', err);
           }
@@ -50,7 +60,7 @@ const LoginForm = () => {
             </input>
             <button className="button" type="submit">Войти</button>
 
-            {isError && <p>Ошибка: {error.data.message}</p>}
+            {/* {isError && <p>Ошибка: {error}</p>} */}
             {isSuccess && <p>Вход выполнен успешно!</p>}
         </form >
     )

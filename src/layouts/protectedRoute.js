@@ -1,12 +1,20 @@
 import { Navigate } from "react-router-dom";
-import { isLoggedIn } from "../Model/AuthSlice";
+import { isLoggedIn, userRole } from "../Model/AuthSlice";
 import { useSelector } from "react-redux";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children, allowedRole }) => {
     const LoggedIn = useSelector(isLoggedIn);
+    const roles = useSelector(userRole);
 
   if (!LoggedIn) {
     return <Navigate to="/login" />;
+  }
+
+  const hasAccess = roles.some(role => allowedRole.includes(role));
+
+  if (!hasAccess) {
+    // Если у пользователя нет нужной роли, перенаправляем его, например, на главную страницу
+    return <Navigate to="/" />;
   }
 
   return children;

@@ -1,0 +1,22 @@
+.owner-header {
+    background-color: darkblue;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+.owner-header p {
+    margin: 0;
+    flex: 1;
+}
+  
+
+.logout-button {
+    margin-right: 20px; 
+}
