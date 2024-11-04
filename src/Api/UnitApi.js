@@ -1,4 +1,4 @@
-import { baseApi } from "../baseApi/baseAPi";
+import { baseApi } from "../features/auth/model/baseAPi";
 
 const UnitApi = baseApi.injectEndpoints({
     endpoints: build => ({

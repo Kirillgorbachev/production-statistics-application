@@ -1,19 +1,21 @@
 import { Navigate, Routes, Route } from "react-router-dom";
-import AuthLayout from "../layouts/authLayout";
-import LoginPage from "../pages/loginPage/loginPage";
-import OwnerLayout from "../layouts/ownerLayout";
+import { AuthLayout } from "../layouts";
+import AuthPage from "../pages/authPage/authPage";
+import { OwnerLayout } from "../layouts";
 import StatisticsPage from "../pages/statisticsPage/StatisticsPage";
-import ProtectedRoute from "../layouts/protectedRoute";
+import { ProtectedRoute } from "../layouts";
 import LogPage from "../pages/logPage/LogPage";
-import UserLayout from "../layouts/userLayout";
+import { UserLayout } from "../layouts";
 
 
 function App() {
   return (
       <Routes>
 
+
+
           <Route  path="/" element={<AuthLayout />}>
-              <Route path="/login" element={<LoginPage />} />
+              <Route path="/login" element={<AuthPage />} />
           </Route>
 
           <Route element={<ProtectedRoute allowedRole={[1]}> <OwnerLayout /> </ProtectedRoute>}>

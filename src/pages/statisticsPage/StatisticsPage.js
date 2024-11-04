@@ -1,9 +1,9 @@
 import { useGetProductionEntriesStatisticsQuery } from '../../Api/ProductionApi';
 import './statisticsPage.css';
-import ProductItem from '../../widgets/productItem/ProductItem';
+import ProductItem from '../../entities/Product/ui/ProductItem';
 
 const StatisticsPage = () => {
-   const {data: statistics, error, isLoading} = useGetProductionEntriesStatisticsQuery();
+   const {data: statistics, isLoading} = useGetProductionEntriesStatisticsQuery();
 
    if (isLoading) {
     return <h1>Загрузка...</h1>

@@ -1,5 +1,5 @@
 
-import LogForm from '../../widgets/logForm/logForm';
+import LogForm from '../../features/log/ui/logForm/logForm';
 import './LogPage.css';
 
 const LogPage = () => {

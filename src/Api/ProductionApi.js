@@ -1,5 +1,5 @@
 
-import { baseApi } from "../baseApi/baseAPi";
+import { baseApi } from "../features/auth/model/baseAPi";
 
 const ProductionApi = baseApi.injectEndpoints({
     endpoints: build => ({
