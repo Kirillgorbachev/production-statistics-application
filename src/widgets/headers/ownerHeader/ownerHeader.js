@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../../features/auth/model/AuthSlice";
 import { useLogoutApiMutation } from "../../../features/auth/model/AuthApi";
 import "./ownerHeader.css";
+import React from "react";
 
 const OwnerHeader = () => {
     const dispatch = useDispatch();

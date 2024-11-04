@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../../features/auth/model/AuthSlice";
 import { useLogoutApiMutation } from "../../../features/auth/model/AuthApi";
 import {Button} from "../../../shared/ui";
+import React from "react";
 
 const UserHeader = () => {
     const dispatch = useDispatch();
